@@ -44,13 +44,9 @@
                         /* this is NOT synchronous */
                         var user = response.data;
 
-                        if (user.usertype == "student"){
+                        if (user._id){
                             $location.url("/sprofile");
-                        } else if(user.usertype=="faculty"){
-                            $location.url("/fprofile");
-                        } else if(user.usertype=="admin"){
-                            $location.url("/aprofile")
-                        }else{
+                        } else {
                             vm.error = response.data;
                         }
                     });

@@ -8,8 +8,6 @@ var app = express();
 
 var connectionString = 'mongodb://127.0.0.1:27017/taportal';
 
-//var connectionString = 'mongodb://admin:admin@ds149567.mlab.com:49567/taportal';
-
 var mongoose = require("mongoose");
 mongoose.connect(connectionString);
 
@@ -32,7 +30,7 @@ app.use(express.static(__dirname + '/public'));
 //require ("./test/app.js")(app);
 
 var ipaddress = process.env.OPENSHIFT_NODEJS_IP;
-var port      = process.env.OPENSHIFT_NODEJS_PORT || 3000;
+var port      = process.env.OPENSHIFT_NODEJS_PORT || 3200;
 
 var project = require("./project/app.js");
 project(app);
@@ -41,3 +39,5 @@ project(app);
 
 app.listen(port, ipaddress);
 
+
+module.exports = app;
